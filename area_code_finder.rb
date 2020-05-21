@@ -13,18 +13,31 @@ dial_book = {
  
 # Get city names from the hash
 def get_city_names(somehash)
-# Write code here
+   cities = somehash.keys
 end
  
 # Get area code based on given hash and key
 def get_area_code(somehash, key)
-# Write code here
+   somehash["#{key}"]
 end
  
+puts "Would you like to find the area code a city? (Y/N)"
+answer = gets.chomp.downcase
+
 # Execution flow
 loop do
-  puts "Would you like to find the area code a city? (Y/N)"
-  answer = gets.chomp.downcase
   break if answer != 'y'
+  if answer == 'y' 
+    puts "These are the cities you can choose from."
+    # puts 25.times("-")
+    puts get_city_names(dial_book)
+    # puts 25.times("-")
+    puts "Which city is it that you want?"
+    city = gets.chomp.downcase
+    puts "The area code for #{city} is #{get_area_code(dial_book, city)}"
+  end
+    puts "Would you like to find another area code? (Y/N)"
+    another = gets.chomp.downcase
+  break if another != 'y'
 end
  
